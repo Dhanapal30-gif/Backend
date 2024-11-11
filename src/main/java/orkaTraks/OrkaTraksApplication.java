@@ -34,11 +34,6 @@ import org.springframework.boot.autoconfigure.security.servlet.SecurityAutoConfi
 
 
 
-
-
-
-
-
 public class OrkaTraksApplication {
 
 	public static void main(String[] args) {
