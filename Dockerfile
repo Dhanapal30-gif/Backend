@@ -4,6 +4,9 @@ FROM openjdk:21-jdk-slim
 # Set the working directory inside the container
 WORKDIR /app
 
+# Copy the built .jar file from your local machine to the container
+COPY target/orkaTraks-0.0.1-SNAPSHOT.jar /app/orkaTraks.jar
+
 # Copy the Spring Boot jar file from the target folder into the container
 COPY target/orkaTraks-0.0.1-SNAPSHOT.jar app.jar
 
