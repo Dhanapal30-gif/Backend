@@ -4,6 +4,9 @@ FROM openjdk:21-jdk-slim as build
 # Set the working directory
 WORKDIR /app
 
+# Install Maven (since it's not included in the slim image)
+RUN apt-get update && apt-get install -y maven
+
 # Copy the project files into the container
 COPY . .
 
