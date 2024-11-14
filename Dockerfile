@@ -1,14 +1,23 @@
-# Use official JDK 21 base image
-FROM openjdk:21-jdk-slim
+# Stage 1: Build the application
+FROM openjdk:21-jdk-slim as build
 
-# Set the working directory inside the container
+# Set the working directory
 WORKDIR /app
 
-# Copy the built .jar file from your local machine to the container
-COPY target/orkaTraks-0.0.1-SNAPSHOT.jar /app/orkaTraks.jar
+# Copy the project files into the container
+COPY . .
 
-# Expose the port that Spring Boot runs on (default is 8080)
+# Run Maven to build the project (this will create the JAR file in the target directory)
+RUN mvn clean package -DskipTests
+
+# Stage 2: Run the application
+FROM openjdk:21
+
+# Copy the JAR file from the build stage
+COPY --from=build /app/target/orkaTraks-0.0.1-SNAPSHOT.jar /app/orkaTraks.jar
+
+# Expose the port the app will run on
 EXPOSE 8080
 
-# Run the Spring Boot application
-ENTRYPOINT ["java", "-jar", "orkaTraks.jar"]
+# Set the entry point to run the JAR file
+ENTRYPOINT ["java", "-jar", "/app/orkaTraks.jar"]
