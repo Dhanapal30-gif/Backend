@@ -13,7 +13,7 @@ import java.util.logging.Level;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins="https://orkatracks.onrender.com")
 public class TaskController {
     private static final Logger logger = Logger.getLogger(TaskController.class.getName());
 

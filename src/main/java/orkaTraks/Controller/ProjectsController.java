@@ -12,7 +12,7 @@ import orkaTraks.Service.ProjectsService;
 import java.util.List;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins="https://orkatracks.onrender.com")
 public class ProjectsController {
     @Autowired
     private ProjectsService projectsService;
