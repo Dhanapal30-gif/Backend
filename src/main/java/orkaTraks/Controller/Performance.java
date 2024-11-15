@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @Controller
-@CrossOrigin("*")
+@CrossOrigin(origins="https://orkatracks.onrender.com")
 public class Performance {
     private static final Logger logger = Logger.getLogger(TaskController.class.getName());
 

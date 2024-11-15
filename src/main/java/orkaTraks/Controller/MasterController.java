@@ -14,7 +14,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin("*")
+@CrossOrigin(origins="https://orkatracks.onrender.com")
 public class MasterController {
     @Autowired
     private ProjectMangeService projectMangeService;
