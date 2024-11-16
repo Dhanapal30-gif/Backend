@@ -17,7 +17,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 
 @RestController
-@CrossOrigin(origins="https://orkatracks.onrender.com")
+
 public class LeaveController {
     @Autowired
     LeveService leaveService;

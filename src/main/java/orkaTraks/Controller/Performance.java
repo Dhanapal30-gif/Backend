@@ -6,6 +6,7 @@ import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RestController;
 import orkaTraks.Entity.Task;
 import orkaTraks.Repo.Performanceser;
 import orkaTraks.Service.PerformanceService;
@@ -16,8 +17,7 @@ import java.util.Map;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
-@Controller
-@CrossOrigin(origins="https://orkatracks.onrender.com")
+@RestController
 public class Performance {
     private static final Logger logger = Logger.getLogger(TaskController.class.getName());
 

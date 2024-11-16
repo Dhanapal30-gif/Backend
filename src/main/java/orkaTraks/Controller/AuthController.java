@@ -15,7 +15,7 @@ import java.util.List;
 import java.util.Map;
 
 @RestController
-@CrossOrigin(origins="https://orkatracks.onrender.com")
+
 public class AuthController {
 
     @Autowired
