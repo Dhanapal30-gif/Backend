@@ -61,7 +61,22 @@ public class TaskController {
         }
     }
 
+    @GetMapping("/api/taskContoller/getAllTask")
+    public ResponseEntity<List<Task>>getTaskDetail(@RequestParam String empId){
+        try {
+            Integer employeeId = Integer.parseInt(empId); // Convert string to integer
+            List<Task> tasks = taskService.getTasksByEmpId(employeeId);
 
+            logger.log(Level.INFO, "Fetching task records for employee ID: {0}", employeeId);
+            logger.log(Level.INFO, "Task Records: {0}", tasks);
+
+            return ResponseEntity.ok(tasks); // Return response
+        } catch (NumberFormatException e) {
+            logger.log(Level.SEVERE, "Invalid employee ID format: " + empId, e);
+            return ResponseEntity.badRequest().body(null);
+        }
+
+    }
 
 
 }

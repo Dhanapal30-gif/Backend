@@ -6,6 +6,7 @@ import orkaTraks.Entity.ChangePassword;
 import orkaTraks.Entity.EmployeeDetails;
 import orkaTraks.Repo.RegRepo;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 
@@ -59,6 +60,10 @@ public class RegService {
     }
 
     public List<EmployeeDetails> getAllData() {
+        return regRepo.findAll();
+    }
+
+    public List<EmployeeDetails> getEmployee() {
         return regRepo.findAll();
     }
 }

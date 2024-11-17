@@ -27,7 +27,7 @@ public class AuthController {
     @PostMapping("/reg_Save")
     public ResponseEntity<String> saveRegister(@RequestBody EmployeeDetails regDetail) {
         String result = regService.regDetail(regDetail);
-        System.out.println("jneiuruib"+regDetail.getID());
+        System.out.println("jneiuruib"+regDetail.getUserRole());
         if (result.startsWith("Error")) {
             return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(result);
         }
@@ -74,5 +74,14 @@ public class AuthController {
         return new ResponseEntity<>(employees, HttpStatus.OK);
     }
 
+    @GetMapping("/api/authContoller/getEmployeeDetail")
+    public ResponseEntity<List<EmployeeDetails>> getEmployeeDeatil(){
+        List <EmployeeDetails> getEmployee=regService.getEmployee();
+
+        if (getEmployee.isEmpty()) {
+            return new ResponseEntity<>(HttpStatus.NO_CONTENT);
+        }
+        return new ResponseEntity<>(getEmployee, HttpStatus.OK);
+    }
 
 }
