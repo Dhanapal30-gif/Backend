@@ -15,6 +15,7 @@ public class EmployeeDetails {
     private Long phoneNumber;
     private String email;
     private String password;
+    private String userRole;
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID;

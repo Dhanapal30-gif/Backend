@@ -30,7 +30,8 @@ public class LoginService {
                     // If login is successful, return the employee details
                     response.put("message", "Login successful!");
                     response.put("empId", String.valueOf(emp.getEmpId()));  // empId from EmployeeDetails table
-                    response.put("empName", emp.getFirstName() + " " + emp.getLastName());  // Full name
+                    response.put("empName", emp.getFirstName() + " " + emp.getLastName());
+                    response.put("userRole",emp.getUserRole());// Full name
                 } else {
                     response.put("message", "Error: Password does not match");
                 }

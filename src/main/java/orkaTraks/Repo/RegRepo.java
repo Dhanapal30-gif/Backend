@@ -10,5 +10,4 @@ import java.util.Optional;
 public interface RegRepo extends JpaRepository<EmployeeDetails,Integer> {
 
     Optional<EmployeeDetails> findByEmpId(Integer empId);
-
 }
