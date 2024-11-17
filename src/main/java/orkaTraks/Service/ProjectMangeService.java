@@ -125,5 +125,7 @@ public class ProjectMangeService {
     }
 
 
-
+    public List<TaskManagement> getProjectByNo(String projectNo) {
+        return taskManagementRepo.findByProjectNo(projectNo);
+    }
 }

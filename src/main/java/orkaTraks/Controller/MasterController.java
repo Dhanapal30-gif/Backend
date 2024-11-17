@@ -6,12 +6,15 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import orkaTraks.Entity.LeaveEvent;
 import orkaTraks.Entity.ProjectManagement;
+import orkaTraks.Entity.Task;
 import orkaTraks.Entity.TaskManagement;
 import orkaTraks.Service.LeaveEven;
 import orkaTraks.Service.ProjectMangeService;
 
 import java.util.List;
 import java.util.Map;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 @RestController
 
@@ -21,6 +24,7 @@ public class MasterController {
 
   @Autowired
     LeaveEven leaveEven;
+    private static final Logger logger = Logger.getLogger(TaskController.class.getName());
 
     @PostMapping("/saveProject")
 //    public ResponseEntity<String>saveProject(@RequestBody List<ProjectManagement> Project){
@@ -113,5 +117,19 @@ public class MasterController {
 
         }
    }
+    @GetMapping("/api/MasterContoller/getProject")
+    public ResponseEntity<List<TaskManagement>>getTaskDetail(@RequestParam String projectNo){
+        try {
+            List<TaskManagement> tasks = projectMangeService.getProjectByNo(projectNo);
 
+            logger.log(Level.INFO, "Fetching task records for employee ID: {0}", projectNo);
+            logger.log(Level.INFO, "Task Records: {0}", tasks);
+
+            return ResponseEntity.ok(tasks); // Return response
+        } catch (NumberFormatException e) {
+            logger.log(Level.SEVERE, "Invalid employee ID format: " + projectNo, e);
+            return ResponseEntity.badRequest().body(null);
+        }
+
+    }
 }

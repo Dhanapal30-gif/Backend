@@ -68,6 +68,7 @@ public class ProjectsService {
     }
 
 
-
-
+    public List<ProjectManagement> getProjectDetail() {
+        return projectsRepo.findAll();
+    }
 }
