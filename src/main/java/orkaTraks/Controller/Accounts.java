@@ -3,16 +3,9 @@ package orkaTraks.Controller;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 import orkaTraks.Entity.Account;
-import orkaTraks.Entity.ProjectManagement;
-import orkaTraks.Entity.Task;
 import orkaTraks.Service.Accounts_servie;
-
-import java.util.Collections;
 import java.util.List;
 
 @RestController
@@ -41,5 +34,12 @@ public class Accounts {
     public ResponseEntity<List<Account>> getProject(){
         List<Account> project = accoutsService.getAccount();
         return ResponseEntity.ok(project);
+    }
+
+    @DeleteMapping("/api/Account/deleteData_Api")
+    public ResponseEntity<String> deletedata(){
+        accoutsService.deleteaccountdata();
+        return ResponseEntity.ok("Train deleted successfully.");
+
     }
 }

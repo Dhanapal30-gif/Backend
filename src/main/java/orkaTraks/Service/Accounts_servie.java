@@ -1,10 +1,8 @@
 package orkaTraks.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 import orkaTraks.Entity.Account;
-import orkaTraks.Entity.Task;
 import orkaTraks.Repo.Accounts_Repo;
 
 import java.util.List;
@@ -21,9 +19,11 @@ public class Accounts_servie {
 
     }
 
-
-
     public List<Account> getAccount() {
         return accountsRepo.findAll();
+    }
+
+    public void deleteaccountdata() {
+        accountsRepo.deleteAll();
     }
 }
