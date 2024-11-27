@@ -21,8 +21,6 @@ public class Accounts_servie {
 
     }
 
-
-
     public List<Account> getAccount() {
         return accountsRepo.findAll();
     }

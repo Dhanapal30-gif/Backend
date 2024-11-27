@@ -5,11 +5,8 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import orkaTraks.Entity.Account;
-import orkaTraks.Entity.ProjectManagement;
-import orkaTraks.Entity.Task;
 import orkaTraks.Service.Accounts_servie;
 
-import java.util.Collections;
 import java.util.List;
 
 @RestController
