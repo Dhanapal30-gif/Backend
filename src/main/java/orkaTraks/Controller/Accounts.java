@@ -6,7 +6,6 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import orkaTraks.Entity.Account;
 import orkaTraks.Service.Accounts_servie;
-
 import java.util.List;
 
 @RestController
