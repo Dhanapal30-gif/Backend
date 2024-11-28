@@ -24,4 +24,7 @@ public class Account {
     private Long credit_Amount;
     @JsonFormat(pattern = "dd-MM-yyyy")
     private Date date;
+    private String exType;
+    private String refernceProjectNo;
+    private Long amountSpent;
 }
