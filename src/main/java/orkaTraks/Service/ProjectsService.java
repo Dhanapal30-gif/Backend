@@ -2,13 +2,8 @@ package orkaTraks.Service;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import orkaTraks.Entity.Account;
-import orkaTraks.Entity.ProjectManagement;
-import orkaTraks.Entity.TaskManagement;
-import orkaTraks.Entity.projectDashboard;
-import orkaTraks.Repo.ProjectsDaRepo;
-import orkaTraks.Repo.ProjectsRepo;
-import orkaTraks.Repo.TaskManagementRepo;
+import orkaTraks.Entity.*;
+import orkaTraks.Repo.*;
 
 import java.util.Collections;
 import java.util.Optional;
@@ -21,9 +16,15 @@ import java.util.List;
 public class ProjectsService {
     @Autowired
     private ProjectsRepo projectsRepo;
+
     @Autowired
     private ProjectsDaRepo projectsDaRepo;
-
+    @Autowired
+    ProjectRiskFactorRepo projectRiskFactorRepo;
+    @Autowired
+    ProjectServiceRepo projectServiceRepo;
+    @Autowired
+    ProjectStageRepo projectStageRepo;
     @Autowired
     private TaskManagementRepo taskManagementRepo;
     public List<ProjectManagement> getProject() {
@@ -101,4 +102,36 @@ public class ProjectsService {
             return Collections.emptyList();
         }
     }
+
+    public List<ProjectStage> saveStage(List<ProjectStage> projects) {
+        return projectStageRepo.saveAll(projects);
+
+    }
+
+    public List<ProjecrRiskFactor> saveRiskFactor(List<ProjecrRiskFactor> projects) {
+        return projectRiskFactorRepo.saveAll(projects);
+
+    }
+
+    public List<ProjectService> saveService(List<ProjectService> projects) {
+        return projectServiceRepo.saveAll(projects);
+
+    }
+
+    public List<ProjectStage> getProjectStageDetail() {
+        return projectStageRepo.findAll();
+
+    }
+
+    public List<ProjecrRiskFactor> getProjectRiskFactorDetail() {
+        return projectRiskFactorRepo.findAll();
+
+    }
+
+    public List<ProjectService> getProjectServiceDetail() {
+        return projectServiceRepo.findAll();
+
+    }
+
+
 }

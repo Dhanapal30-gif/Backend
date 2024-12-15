@@ -27,4 +27,7 @@ public class Account {
     private String exType;
     private String refernceProjectNo;
     private Long amountSpent;
+    private Long emi;
+    private Long outstandingAmount;
+    private Long bankBalance;
 }
