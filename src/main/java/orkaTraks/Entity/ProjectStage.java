@@ -11,21 +11,18 @@ import java.util.Date;
 
 @Entity
 @Data
-public class projectDashboard {
+public class ProjectStage {
+
+
     @Id
     @GeneratedValue(strategy = GenerationType.AUTO)
     private int ID;
     private String projectNo;
     private String projectName;
+    private String stage;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date proStartDate;
+    private Date stageStartDate;
     @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date proPlanedDate;
-    @JsonFormat(pattern = "dd-MM-yyyy")
-    private Date proActualDate;
-
-
-
-
-
+    private Date stageEndDate;
+    private String stageStatus;
 }
